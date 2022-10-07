@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="widget.html"><strong aria-hidden="true">1.</strong> Widget</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="widget/functionalities.html"><strong aria-hidden="true">1.1.</strong> Functionalities</a></li><li class="chapter-item expanded "><a href="widget/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="widget/customization.html"><strong aria-hidden="true">1.3.</strong> Customization</a></li><li class="chapter-item expanded "><a href="widget/example.html"><strong aria-hidden="true">1.4.</strong> Example</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="widget"><a class="header" href="#widget">Widget</a></h1>
+<p>Kaaja widget is a plug-and-play component that enables partners to visualize Kaaja functionalities on an external domain. The widget is developed and maintained by Kaaja IT team.</p>
+<p>The following documentation is provided in order to install, manage and ask for support regarding the mentioned widget.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functionalities"><a class="header" href="#functionalities">Functionalities</a></h1>
+<p>The following functionalities are exposed through the widget and configurable by Kaaja for each property:</p>
+<ul>
+<li><strong>Calendar</strong>: it is possible to book an in-person or remote visit to the property, choosing among the available dates. When booked, an e-mail notification is sent to the client through which she/he can manage and delete the visit; the related agent receives the calendar invitation with the details of the above client.</li>
+<li><strong>Offers</strong>: it is possible to submit offers for the specific property. To do so, each client must first register on Kaaja.com and input her/his data, necessary to compile the final proposal. A deposit to validate the offer is asked either through credit card or SEPA transfer.</li>
+<li><strong>Documentation</strong>: it is possible to visualize and download the entire documentation available for the specific property. To do so, each client must first register on Kaaja.com</li>
+<li><strong>Contact</strong>: it is possible to visualize dedicated phone number and submit a contact form to Kaaja for any type of inquiries</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<p>The widget is simply a web component that can be embedded in any website. Only two steps are required to install the widget:</p>
+<ol>
+<li>Add the following script tag to the page where you want to embed the widget:</li>
+</ol>
+<pre><code class="language-html">&lt;script src=&quot;https://widget.kaaja.com/kaaja-property-widget.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li>Configure the Web component parameters by adding the following tag to the page where you want to embed the widget:</li>
+</ol>
+<pre><code class="language-html">&lt;kaaja-property-widget api-key=&quot;1ec815dxxc9a375abcd123fghj&quot; property-code=&quot;H2P-MI-25-1&quot; locale=&quot;en&quot; /&gt;
+</code></pre>
+<h2 id="parameters"><a class="header" href="#parameters">Parameters</a></h2>
+<p>To invoke correctly Kaaja functionalities through the widget, three parameters are needed, as mentioned below:</p>
+<ul>
+<li><strong>API Key</strong>: each partner receives from Kaaja IT team an API Key based on each specific domain. If the API Key and the specific domain does not match, no API invocation could be performed.</li>
+<li><strong>Property code</strong>: to get the functionalities related to the correct property, the Kaaja property code must be used. This code is unique for each property and it is provided by Kaaja through the data flows used for property information sharing.</li>
+<li><strong>Language</strong>: as of now, Kaaja widget manages two languages, italian &quot;it&quot; and english &quot;en&quot;. If the language is not specified, the widget will be displayed in italian.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="customization"><a class="header" href="#customization">Customization</a></h1>
+<p>Kaaja widget can be customized, as per client needs, modifying the following parameter:</p>
+<h2 id="floating-vs-embedded"><a class="header" href="#floating-vs-embedded">Floating vs embedded</a></h2>
+<p>Kaaja widget comes out of the box as a floating widget. If the client needs the widget functionalities to be embedded in the page, a new component needs to be created into the page that wraps the Kaaja iFrame with the parameters included in query string. An example of this is provided in the following snippet:</p>
+<pre><code class="language-html">&lt;iframe width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;https://www.kaajab.com/it/widget/property-widget?api_key=4eb895d00c9a3752ba88db30eb3f68f1&amp;amp;property_code=MAC-FM-4-B2&amp;amp;integration_url=https%3A%2F%2Fdfm745fopjvgu.cloudfront.net%2F%3F&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<p>The parameters are the same as the ones used for the floating widget, as described in the <a href="widget/installation.html#parameters">installation parameters section</a>.</p>
+<h2 id="height-and-width"><a class="header" href="#height-and-width">Height and width</a></h2>
+<p>it is possible to set a different height and width according to the needs. Height and width suggested: 400x500px</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="example"><a class="header" href="#example">Example</a></h1>
+<p>You can try the widget at this link: <a href="https://dfm745fopjvgu.cloudfront.net/">https://dfm745fopjvgu.cloudfront.net/</a>
+The following codes can be used to test different versions of the widget:</p>
+<ul>
+<li>MAC-FM-3-B1</li>
+<li>MAC-FM-2-A2</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
