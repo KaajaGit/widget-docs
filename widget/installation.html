@@ -161,6 +161,10 @@
 <li><strong>Property code</strong>: to get the functionalities related to the correct property, the Kaaja property code must be used. This code is unique for each property and it is provided by Kaaja through the data flows used for property information sharing.</li>
 <li><strong>Language</strong>: as of now, Kaaja widget manages two languages, italian &quot;it&quot; and english &quot;en&quot;. If the language is not specified, the widget will be displayed in italian.</li>
 </ul>
+<h2 id="edit-and-delete-appointments"><a class="header" href="#edit-and-delete-appointments">Edit and delete appointments</a></h2>
+<p>The widget allows the user to book an appointment, edit it and delete it. To edit or delete an appointment, we need a <strong>kaaja_booking_id</strong> parameter from the url. This id is used to identify the appointment and it is needed to edit or delete it.</p>
+<p>example: <strong>https://www.kaaja.com/it/widget/property-widget?api_key=x123asdvderetest&amp;property_code=MAC-FM-4-B2&amp;integration_url=https%3A%2F%2Fdfm745fopjvgu.cloudfront.net%2F%3F&amp;kaaja_booking_id=123456</strong></p>
+<p>After the user has booked an appointment, the widget will send an email to the user with the link to edit or delete the appointment. The link will contain the <strong>kaaja_booking_id</strong> parameter.</p>
 
                     </main>
 
